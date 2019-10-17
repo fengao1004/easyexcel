@@ -1,0 +1,42 @@
+使用文档
+1 读取文件
+ Reader<Bean> beanReader = new Reader<>(Bean.class);
+ List<Bean> beans = beanReader.readExcel(path, j);
+2 设置合并策略
+  MergeUtil mergeUtil = new MergeUtil();
+  MergeBean bean1 = new MergeBean();
+  //进行哪一列的合并
+  bean1.lineIndex = 1;
+  //设置跟随列进行同步合并
+  bean1.followIndex.add(0);
+  MergeBean bean2 = new MergeBean();
+  bean2.lineIndex = 2;
+  //设置权限更高的列 只要importantLineIndex不同 则认为不可以合并
+  // 河北 石家庄
+  // 河北 石家庄
+  // 河北 石家庄
+  // 河北 石家庄
+  // 河南 石家庄
+  // 河南 石家庄
+  // lineIndex指石家庄 importantLineIndex值省份 ，则合并效果是
+  // 河北 石家庄
+  // 河北
+  // 河北
+  // 河北
+  // 河南 石家庄
+  // 河南
+  // 不指定importantLineIndex则效果是
+  // 河北 石家庄
+  // 河北
+  // 河北
+  // 河北
+  // 河南
+  // 河南
+  bean2.importantLineInex = 1;
+  MergeBean bean3 = new MergeBean();
+  bean3.lineIndex = 3;
+  bean3.importantLineInex = 1;
+  //MergeBean 是合并规则 mergeUtil是整个的合并策略，一个策略可以添加多个规则
+  mergeUtil.mergeBeans.add(bean1);
+  mergeUtil.mergeBeans.add(bean2);
+  mergeUtil.mergeBeans.add(bean3);
