@@ -51,7 +51,7 @@ public abstract class AbstractReadHolder extends AbstractHolder implements ReadH
      */
     private ExcelReadHeadProperty excelReadHeadProperty;
     /**
-     * Read listener
+     * Read MergeListener
      */
     private List<ReadListener> readListenerList;
 

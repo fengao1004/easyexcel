@@ -15,7 +15,7 @@ public interface ReadListenerRegistryCenter {
      * register
      *
      * @param listener
-     *            Analysis listener
+     *            Analysis MergeListener
      */
     void register(AnalysisEventListener listener);
 

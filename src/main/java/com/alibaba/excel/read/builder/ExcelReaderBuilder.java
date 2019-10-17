@@ -162,7 +162,7 @@ public class ExcelReaderBuilder {
     }
 
     /**
-     * Custom type listener run after default
+     * Custom type MergeListener run after default
      *
      * @param readListener
      * @return

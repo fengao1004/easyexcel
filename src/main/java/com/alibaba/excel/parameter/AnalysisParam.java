@@ -22,7 +22,7 @@ public class AnalysisParam {
     private InputStream in;
 
     /**
-     * user defined param to listener use
+     * user defined param to MergeListener use
      */
     private Object customContent;
 

@@ -24,7 +24,7 @@ public class ReadBasicParameter extends BasicParameter {
      */
     private Integer headRowNumber;
     /**
-     * Custom type listener run after default
+     * Custom type MergeListener run after default
      */
     private List<ReadListener> customReadListenerList = new ArrayList<ReadListener>();
 

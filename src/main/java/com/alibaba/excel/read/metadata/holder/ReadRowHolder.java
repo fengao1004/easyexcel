@@ -16,7 +16,7 @@ public class ReadRowHolder implements Holder {
     private int rowIndex;
 
     /**
-     * The result of the previous listener
+     * The result of the previous MergeListener
      */
     private Object currentRowAnalysisResult;
     /**

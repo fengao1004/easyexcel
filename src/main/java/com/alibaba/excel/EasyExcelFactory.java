@@ -73,7 +73,7 @@ public class EasyExcelFactory {
      *            read sheet.
      * @param listener
      *            Callback method after each row is parsed.
-     * @deprecated please use 'EasyExcel.read(in,head,listener).sheet(sheetNo).doRead().finish();'
+     * @deprecated please use 'EasyExcel.read(in,head,MergeListener).sheet(sheetNo).doRead().finish();'
      */
     @Deprecated
     public static void readBySax(InputStream in, Sheet sheet, AnalysisEventListener listener) {
@@ -369,7 +369,7 @@ public class EasyExcelFactory {
      * @param file
      *            File to read.
      * @param readListener
-     *            Read listener.
+     *            Read MergeListener.
      * @return Excel reader builder.
      */
     public static ExcelReaderBuilder read(File file, ReadListener readListener) {
@@ -384,7 +384,7 @@ public class EasyExcelFactory {
      * @param head
      *            Annotate the class for configuration information.
      * @param readListener
-     *            Read listener.
+     *            Read MergeListener.
      * @return Excel reader builder.
      */
     public static ExcelReaderBuilder read(File file, Class head, ReadListener readListener) {
@@ -416,7 +416,7 @@ public class EasyExcelFactory {
      * @param pathName
      *            File path to read.
      * @param readListener
-     *            Read listener.
+     *            Read MergeListener.
      * @return Excel reader builder.
      */
     public static ExcelReaderBuilder read(String pathName, ReadListener readListener) {
@@ -431,7 +431,7 @@ public class EasyExcelFactory {
      * @param head
      *            Annotate the class for configuration information.
      * @param readListener
-     *            Read listener.
+     *            Read MergeListener.
      * @return Excel reader builder.
      */
     public static ExcelReaderBuilder read(String pathName, Class head, ReadListener readListener) {
@@ -463,7 +463,7 @@ public class EasyExcelFactory {
      * @param inputStream
      *            Input stream to read.
      * @param readListener
-     *            Read listener.
+     *            Read MergeListener.
      * @return Excel reader builder.
      */
     public static ExcelReaderBuilder read(InputStream inputStream, ReadListener readListener) {
@@ -478,7 +478,7 @@ public class EasyExcelFactory {
      * @param head
      *            Annotate the class for configuration information.
      * @param readListener
-     *            Read listener.
+     *            Read MergeListener.
      * @return Excel reader builder.
      */
     public static ExcelReaderBuilder read(InputStream inputStream, Class head, ReadListener readListener) {

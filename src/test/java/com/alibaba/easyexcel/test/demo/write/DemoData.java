@@ -13,7 +13,7 @@ import lombok.Data;
  **/
 @Data
 public class DemoData {
-    @ExcelProperty("字符串标题")
+    @ExcelProperty(value = "字符串标题", index = 5)
     private String string;
     @ExcelProperty("日期标题")
     private Date date;
