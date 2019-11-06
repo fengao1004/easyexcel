@@ -56,6 +56,22 @@
     </licenses>
 
     <dependencies>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.commons</groupId>-->
+            <!--<artifactId>commons-lang3</artifactId>-->
+            <!--<version>3.5</version>-->
+        <!--</dependency>-->
+        <!--bean实体注解工具包-->
+        <!--<dependency>-->
+            <!--<groupId>org.projectlombok</groupId>-->
+            <!--<artifactId>lombok</artifactId>-->
+        <!--</dependency>-->
+        <!--汉语言包，主要用于分词-->
+        <!--<dependency>-->
+            <!--<groupId>com.hankcs</groupId>-->
+            <!--<artifactId>hanlp</artifactId>-->
+            <!--<version>portable-1.6.5</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>

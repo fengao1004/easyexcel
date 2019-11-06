@@ -4,13 +4,14 @@ import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.main.util.MergeBean;
 import com.alibaba.excel.main.util.MergeUtil;
+import com.alibaba.excel.main.util.PullDownList;
 import com.alibaba.excel.main.util.Reader;
 import com.alibaba.excel.write.metadata.WriteSheet;
 
 import java.util.*;
 
 public class Main {
-    static String path = "D:\\smm\\excel\\20191016\\data.xls";
+    static String path = "D:\\smm\\excel\\20191016\\五大类汇总表\\五大类汇总表\\土建总包.xls";
     static String outPath = "D:\\smm\\excel\\20191016\\out\\";
     private static ExcelWriter excelWriter;
     private static Map<String, List<Bean>> map;
@@ -80,16 +81,16 @@ public class Main {
             mergeUtil.mergeBeans.add(bean1);
             mergeUtil.mergeBeans.add(bean2);
             mergeUtil.mergeBeans.add(bean3);
-
-
-            excelWriter = EasyExcel.write(outPath + city + ".xls", Bean.class).registerWriteHandler(mergeUtil).build();
+            PullDownList pullDownList = new PullDownList();
+            excelWriter = EasyExcel.write(outPath + city + ".xls", Bean.class).registerWriteHandler(mergeUtil).registerWriteHandler(pullDownList).build();
             int index = 0;
             for (String s : strings1) {
                 List<Bean> list = map.get(s);
                 mergeUtil.ready(list);
                 WriteSheet writeSheet = EasyExcel.writerSheet(index, s).build();
+                pullDownList.size = list.size();
                 excelWriter.write(list, writeSheet);
-                num +=list.size();
+                num += list.size();
                 index++;
             }
             excelWriter.finish();
@@ -103,21 +104,21 @@ public class Main {
         int num = 0;
         for (Bean bean : beans) {
             List<Bean> beans1 = map.get(bean.城市公司 + "%&%" + s);
-            if (bean.合同名称 != null) {
-                if (beans1 == null) {
-                    beans1 = new ArrayList<>();
-                }
-                bean.定标时间 = bean.定标时间 == null ? "" : bean.定标时间.replace("00:00:00", "");
-                bean.签约时间 = bean.签约时间 == null ? "" : bean.签约时间.replace("00:00:00", "");
-                bean.计划 = bean.计划 == null ? "" : bean.计划.replace("00:00:00", "");
-                beans1.add(bean);
-//                if (bean.序号.split(".") == null || bean.序号.split(".").length == 0) {
-                bean.序号 = bean.序号.split("\\.")[0];
-//                }
-                map.put(bean.城市公司 + "%&%" + s, beans1);
-            } else {
-                del++;
+//            if (bean.合同名称 != null) {
+            if (beans1 == null) {
+                beans1 = new ArrayList<>();
             }
+            bean.定标时间 = bean.定标时间 == null ? "" : bean.定标时间.replace("00:00:00", "");
+            bean.签约时间 = bean.签约时间 == null ? "" : bean.签约时间.replace("00:00:00", "");
+            bean.计划 = bean.计划 == null ? "" : bean.计划.replace("00:00:00", "");
+            beans1.add(bean);
+//                if (bean.序号.split(".") == null || bean.序号.split(".").length == 0) {
+            bean.序号 = bean.序号.split("\\.")[0];
+//                }
+            map.put(bean.城市公司 + "%&%" + s, beans1);
+//            } else {
+//                del++;
+//            }
         }
     }
 

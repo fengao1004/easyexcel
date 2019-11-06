@@ -24,7 +24,4 @@ public class Bean {
     public   String 评价人;
     @ExcelProperty(index = 7)
     public   String 评价部门;
-
-
-
 }
